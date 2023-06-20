@@ -1,6 +1,5 @@
 from flask import Flask, render_template
-import psycopg2
-from main1 import insert_customers, fetch_data
+from main1 import insert_customers, fetch_data,psycopg2
 
 app = Flask(__name__)
 

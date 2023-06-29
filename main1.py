@@ -29,3 +29,12 @@ def insert_customers(vs):
         return "customers successfully added"
     except Exception as e:
         return str(e)
+    
+def insert_addcustomers(vs):
+    try:
+        q = "INSERT INTO customers  (id, first_name, last_name, email, phone) VALUES (%s, %s, %s, %s, %s)"
+        cur.execute(q, vs)
+        conn.commit()
+        return "customers successfully added"
+    except Exception as e:
+        return str(e)

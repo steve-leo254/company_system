@@ -16,6 +16,9 @@ def display_customers():
     customers = fetch_data("customers")
     return render_template('customers.html', customers=customers)
 
+@app.route('/contact.html')
+def contact():
+    return render_template("contact.html")
 
 # @app.route('/addcustomer', methods=["POST"])
 # def addproducts():
@@ -29,6 +32,7 @@ def display_customers():
     
 @app.route('/employees')
 def display_employees():
+    return render_template("employees.html")
 
 if __name__ == "__main__":
     app.run()

@@ -1,5 +1,5 @@
 from flask import Flask, render_template,request,redirect
-from main1 import insert_customers, fetch_data,psycopg2,insert_addcustomers
+from main1 import insert_customers, fetch_data,psycopg2,contact
 
 app = Flask(__name__)
 
@@ -11,14 +11,26 @@ def hello_world():
     name = "leo"
     return render_template("index.html", name=name)
 
+
 @app.route('/customers')
 def display_customers():
     customers = fetch_data("customers")
     return render_template('customers.html', customers=customers)
 
-@app.route('/contact.html')
+@app.route('/contact')
 def contact():
     return render_template("contact.html")
+
+
+# @app.route('/add_customer_info', methods=["POST", "GET"])
+# def add_contact(): 
+#     name = request.form["name"]
+#     email = request.form["email"]
+#     phone = request.form["phone"]
+#     message = request.form["message"]
+#     contact = (name, email, phone, message)
+#     contact(add_contact)
+#     return render_template("contact.html")
 
 # @app.route('/addcustomer', methods=["POST"])
 # def addproducts():

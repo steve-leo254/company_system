@@ -30,7 +30,7 @@ def insert_customers(vs):
     except Exception as e:
         return str(e)
     
-def insert_addcustomers(vs):
+def insert_addcustomer(vs):
     try:
         q = "INSERT INTO customers  (id, first_name, last_name, email, phone) VALUES (%s, %s, %s, %s, %s)"
         cur.execute(q, vs)
@@ -38,3 +38,12 @@ def insert_addcustomers(vs):
         return "customers successfully added"
     except Exception as e:
         return str(e)
+
+
+def contact(contact):
+    vs = str(contact)
+    q = "insert into custom_info (name, email, phone, message) VALUES (%s, %s, %s, %s);"
+    "values" + vs
+    cur.execute(q , contact)
+    conn.commit()
+    return "Request submitted successfully."

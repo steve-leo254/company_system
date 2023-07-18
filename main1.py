@@ -40,6 +40,29 @@ def insert_addcustomer(vs):
         return str(e)
 
 
+def insert_employees(vs):
+    try:
+        q = "INSERT INTO employees (id, first_name, last_name, email, phone) VALUES (%s, %s, %s, %s, %s)"
+        cur.execute(q, vs)
+        conn.commit()
+        return "employees successfully added"
+    except Exception as e:
+        return str(e)
+    
+
+def insert_addemployees(vs):
+    try:
+        q = "INSERT INTO employees  (id, first_name, last_name, email, phone) VALUES (%s, %s, %s, %s, %s)"
+        cur.execute(q, vs)
+        conn.commit()
+        return "customers successfully added"
+    except Exception as e:
+        return str(e)
+    
+
+
+
+
 def contact(contact):
     vs = str(contact)
     q = "insert into custom_info (name, email, phone, message) VALUES (%s, %s, %s, %s);"
@@ -47,3 +70,6 @@ def contact(contact):
     cur.execute(q , contact)
     conn.commit()
     return "Request submitted successfully."
+
+
+

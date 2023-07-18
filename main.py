@@ -1,5 +1,13 @@
 from flask import Flask, render_template,request,redirect
 from main1 import insert_customers, fetch_data,psycopg2,contact,insert_employees,insert_addemployees
+from sqlalchemy import create_engine
+from sqlalchemy.orm import scoped_session,sessionmaker
+from passlib.hash import sha256_crypt
+
+# engine = create_engine("mysql+pymysql://company:leo.steve@localhost/company")
+# db = scoped_session(sessionmaker(bind=engine))
+
+
 
 
 app = Flask(__name__)
@@ -19,7 +27,7 @@ def display_customers():
     return render_template('customers.html', customers=customers)
 
 
-@app.route('/customers')
+@app.route('/employees')
 def display_employees():
     employees = fetch_data("employees")
     return render_template('employees.html', employees=employees)
@@ -36,6 +44,17 @@ def enquiry():
 @app.route('/contact')
 def contact():
     return render_template("contact.html")
+
+
+@app.route('/login')
+def login():
+    return render_template("login.html")
+
+
+@app.route('/register')
+def register():
+    return render_template("register.html")
+
 
 
 # @app.route('/add_customer_info', methods=["POST", "GET"])
@@ -63,5 +82,5 @@ def contact():
 #     return render_template("employees.html")
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
 

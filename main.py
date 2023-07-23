@@ -4,6 +4,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session,sessionmaker
 from passlib.hash import sha256_crypt
 
+
 # engine = create_engine("mysql+pymysql://company:leo.steve@localhost/company")
 # db = scoped_session(sessionmaker(bind=engine))
 
@@ -80,6 +81,11 @@ def register():
 # @app.route('/employees')
 # def display_employees():
 #     return render_template("employees.html")
+
+
+
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
